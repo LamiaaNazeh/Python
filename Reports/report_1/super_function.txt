@@ -1,0 +1,59 @@
+			The super() Function
+		-------------------------------------
+
+With the super() function, we can gain access to inherited methods that have been overwritten in a class object. 
+
+When we use the super() function, we are calling a parent method into a child method to make use of it. 
+
+The super() function is most commonly used within the __init__() method because that is where we will most likely need to add some uniqueness to the child class and then complete initialization from the parent. 
+
+
+		       -> without super() function <-
+
+	class First(object):
+	    def __init__(self):
+		print("first")
+
+	class Second(First):
+	    def __init__(self):
+		print("second")
+
+	class Third(First, Second):
+	    def __init__(self):
+		print("Third")
+
+
+	Third()
+
+The output => Third
+	      
+
+			-> with super() function <-
+
+	class First(object):
+	    def __init__(self):
+		super(First, self).__init__()
+		print("first")
+
+	class Second(First):
+	    def __init__(self):
+		super(Second, self).__init__()
+		print("second")
+
+	class Third(First, Second):
+	    def __init__(self):
+		super(Third, self).__init__()
+		print("third")
+
+	Third()
+
+The output => Second
+	      First
+	      Third
+
+
+
+				Conclusion
+			--------------------------
+
+we went through constructing parent classes and child classes, overriding parent methods and attributes within child classes, using the super() function, and allowing for child classes to inherit from multiple parent classes.

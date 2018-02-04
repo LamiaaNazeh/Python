@@ -1,0 +1,32 @@
+			Overloading in python
+		----------------------------------------
+
+
+In the following example the second definition of f with two parameters  oveloading the first definition with one argument.This explains the error message: 
+
+	 def f(n):
+	     return n 
+	 
+	 def f(n,m):
+	     return n + m 
+	 
+
+	             -> it will give an error <-
+
+ 
+#If we need such a behaviour, we can simulate overloading with default parameters: 
+
+	def f(n, m=None):
+	    if m:
+		return n + m 
+	    else:
+		return n 
+
+#we can also simulate overloading with *operator: 
+
+	def f(*x):
+		if len(x) == 1:
+			return x[0] 
+		else: 
+			return x[0] + x[1] 
+	
